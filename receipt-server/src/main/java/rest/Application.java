@@ -1,4 +1,4 @@
-package receipts;
+package rest;
 
 import java.util.Arrays;
 
@@ -25,7 +25,6 @@ public class Application {
             for (String beanName : beanNames) {
                 System.out.println(beanName);
             }
-
         };
     }
 }
