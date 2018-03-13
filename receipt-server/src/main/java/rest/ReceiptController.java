@@ -1,5 +1,6 @@
 package rest;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -21,7 +22,9 @@ public class ReceiptController
     {
         Receipt result = new Receipt();
         result.setBaseAmount(new BigDecimal(100));
-        String test = PropertyUtil.getDatabasePath();
+        
+        
+        
         return ResponseEntity.ok(result);
     }
     
