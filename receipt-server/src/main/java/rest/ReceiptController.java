@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import businessObject.Receipt;
 import core.PropertyUtil;
+import core.util.SQLiteDBUtil;
+import dao.implement.sqlite.SQLiteReceiptDAO;
 
 @RestController
 @RequestMapping("/receipts")
@@ -19,12 +21,9 @@ public class ReceiptController
 {
     @GetMapping("/{receiptId}")
     public ResponseEntity<Receipt> getReceipt(@PathVariable long receiptId) 
-    {
-        Receipt result = new Receipt();
-        result.setBaseAmount(new BigDecimal(100));
-        
-        
-        
+    {   
+        SQLiteReceiptDAO sqLiteReceiptDAO = new SQLiteReceiptDAO();
+        Receipt result = sqLiteReceiptDAO.getById(receiptId);
         return ResponseEntity.ok(result);
     }
     

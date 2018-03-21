@@ -1,14 +1,13 @@
 package businessObject.businessEnum;
 
-public enum Payee 
+public enum StoreType 
 {
-    HONG(1),
-    JESSICA(2),
-    HOME(3);
+    STORE(1),
+    SERVICE(2);
     
     int value;
     
-    Payee(int value)
+    StoreType(int value)
     {
         this.value = value;
     }
@@ -18,16 +17,14 @@ public enum Payee
         return value;
     }
     
-    public static Payee valueOf(int value)
+    public static StoreType valueOf(int value)
     {
         switch (value)
         {
             case 1:
-                return HONG;
+                return STORE;
             case 2:
-                return JESSICA;
-            case 3:
-                return HOME;
+                return SERVICE;
             default:                
                 return null;
         }

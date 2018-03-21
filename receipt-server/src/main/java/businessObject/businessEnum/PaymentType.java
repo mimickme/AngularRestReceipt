@@ -1,5 +1,10 @@
 package businessObject.businessEnum;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import dao.implement.sqlite.SQLiteReceiptDAO;
+
 public enum PaymentType 
 {
     FREE(1),
@@ -17,5 +22,22 @@ public enum PaymentType
     public int getValue()
     {
         return value;
+    }
+    
+    public static PaymentType valueOf(int value)
+    {
+        switch (value)
+        {
+            case 1:
+                return FREE;
+            case 2:
+                return DEBIT;
+            case 3:
+                return CREDIT;
+            case 4:
+                return CASH;
+            default:                
+                return null;
+        }
     }
 }

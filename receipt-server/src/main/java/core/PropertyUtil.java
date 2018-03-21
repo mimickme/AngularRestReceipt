@@ -32,4 +32,9 @@ public class PropertyUtil
     {
         return instance.configs.getString("databasePath");
     }
+    
+    public static boolean createNewDatabase()
+    {
+        return instance.configs.getBoolean("createNewDB");
+    }
 }
