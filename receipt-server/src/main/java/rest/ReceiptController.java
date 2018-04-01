@@ -30,8 +30,8 @@ public class ReceiptController
     @GetMapping
     public ResponseEntity<List<Receipt>> getReceipts()
     {
-        
-        
-        return null;
+        SQLiteReceiptDAO sqLiteReceiptDAO = new SQLiteReceiptDAO();
+        List<Receipt> result = sqLiteReceiptDAO.getAll();
+        return ResponseEntity.ok(result);
     }
 }

@@ -2,7 +2,10 @@ package businessObject;
 
 import java.math.BigDecimal;
 
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import businessObject.businessEnum.Payee;
 import businessObject.businessEnum.PaymentType;
@@ -10,8 +13,8 @@ import businessObject.businessEnum.PaymentType;
 public class Receipt 
 {
     long receiptId;
-    long storeId;
-    LocalDate receiptDate;
+    long storechainId;
+    DateTime receiptDate;
     PaymentType paymentType;
     BigDecimal baseAmount;
     BigDecimal taxAmount;
@@ -27,12 +30,12 @@ public class Receipt
         
     }
     
-    public Receipt(long receiptId, long storeId, LocalDate receiptDate, PaymentType paymentType, BigDecimal baseAmount,
+    public Receipt(long receiptId, long storechainId, DateTime receiptDate, PaymentType paymentType, BigDecimal baseAmount,
             BigDecimal taxAmount, BigDecimal taxPercentage, BigDecimal tipAmount, BigDecimal totalAmount,
             BigDecimal roundAmount, boolean reversal, Payee payee) 
     {
         this.receiptId = receiptId;
-        this.storeId = storeId;
+        this.storechainId = storechainId;
         this.receiptDate = receiptDate;
         this.paymentType = paymentType;
         this.baseAmount = baseAmount;
@@ -50,11 +53,12 @@ public class Receipt
         return receiptId;
     }    
 
-    public long getStoreId() {
-        return storeId;
+    public long getStoreChainId() {
+        return storechainId;
     }
 
-    public LocalDate getReceiptDate() {
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="UTC")
+    public DateTime getReceiptDate() {
         return receiptDate;
     }
 
@@ -98,11 +102,11 @@ public class Receipt
         this.receiptId = receiptId;
     }
 
-    public void setStoreId(long storeId) {
-        this.storeId = storeId;
+    public void setStoreChainId(long storechainId) {
+        this.storechainId = storechainId;
     }
 
-    public void setReceiptDate(LocalDate receiptDate) {
+    public void setReceiptDate(DateTime receiptDate) {
         this.receiptDate = receiptDate;
     }
 

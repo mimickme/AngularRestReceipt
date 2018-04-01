@@ -48,8 +48,8 @@ public class SQLiteReceiptDAO implements ReceiptDAO
             while (rs.next())
             {
                 Receipt r = new Receipt(rs.getLong("RECEIPTID"), 
-                                        rs.getLong("STOREID"),
-                                        LocalDate.parse(rs.getString("RECEIPTDATE"),dateTimeFormatter),
+                                        rs.getLong("STORECHAINID"),
+                                        DateTime.parse(rs.getString("RECEIPTDATE"),dateTimeFormatter),
                                         PaymentType.valueOf(rs.getInt("PAYMENTTYPE")), 
                                         rs.getBigDecimal("BASEAMOUNT"), 
                                         rs.getBigDecimal("TAXAMOUNT"), 
@@ -86,8 +86,8 @@ public class SQLiteReceiptDAO implements ReceiptDAO
             while (rs.next())
             {
                 result = new Receipt(rs.getLong("RECEIPTID"), 
-                                        rs.getLong("STOREID"),
-                                        LocalDate.parse(rs.getString("RECEIPTDATE"),dateTimeFormatter),
+                                        rs.getLong("STORECHAINID"),
+                                        DateTime.parse(rs.getString("RECEIPTDATE"),dateTimeFormatter),
                                         PaymentType.valueOf(rs.getInt("PAYMENTTYPE")), 
                                         rs.getBigDecimal("BASEAMOUNT"), 
                                         rs.getBigDecimal("TAXAMOUNT"), 
